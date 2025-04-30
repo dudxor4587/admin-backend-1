@@ -1,0 +1,31 @@
+<!-- templates/detail.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 상세</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<!-- 네비게이션 바 삽입 -->
+<div th:replace="~{nav.html :: nav}"></div>
+<div style="width:60%;margin:30px auto;background:#fff;padding:30px 40px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+    <h1 th:text="${post.title}"></h1>
+    <div style="margin-bottom:30px;min-height:80px;" th:text="${post.content}"></div>
+    <hr style="margin:30px 0;">
+    <h2 style="margin-bottom:10px;">댓글</h2>
+    <ul>
+        <li th:each="comment : ${commentList}">
+            <b th:text="${comment.member.email}"></b> :
+            <span th:text="${comment.content}"></span>
+        </li>
+    </ul>
+    <form th:if="${session.memberId != null}" th:action="@{|/post/${post.postId}/comment|}" method="post" style="margin-top:20px;">
+        <input type="text" name="content" placeholder="댓글 입력" style="margin-bottom:0;"/>
+        <button type="submit">댓글 작성</button>
+    </form>
+    <div style="margin-top:30px;">
+        <a th:href="@{/}" style="color:#1976d2;">목록으로</a>
+    </div>
+</div>
+</body>
+</html>

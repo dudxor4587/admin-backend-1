@@ -1,0 +1,23 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>글쓰기</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<!-- 네비게이션 바 삽입 -->
+<div th:replace="~{nav.html :: nav}"></div>
+<div style="width:60%;margin:40px auto;background:#fff;padding:30px 40px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+    <h1>글쓰기</h1>
+    <form th:action="@{/post}" method="post">
+        <input type="text" name="title" placeholder="제목" style="margin-bottom:16px;"/><br/>
+        <textarea name="content" placeholder="내용" rows="8" style="margin-bottom:16px;"></textarea><br/>
+        <button type="submit">등록</button>
+    </form>
+    <div style="margin-top:30px;">
+        <a th:href="@{/}" style="color:#1976d2;">목록으로</a>
+    </div>
+</div>
+</body>
+</html>

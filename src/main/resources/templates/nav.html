@@ -1,0 +1,19 @@
+<!-- nav.html: 네비게이션 바 프래그먼트 -->
+<div th:fragment="nav">
+    <div style="width:100%;background:#1976d2;padding:16px 0 12px 0;margin-bottom:30px;">
+        <div style="width:80%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+            <a th:href="@{/}" style="color:#fff;font-size:1.3em;font-weight:bold;text-decoration:none;">게시판</a>
+            <div>
+                <span th:if="${session.memberId == null}">
+                    <a th:href="@{/login}" style="color:#fff;margin-right:18px;">로그인</a>
+                    <a th:href="@{/signup}" style="color:#fff;">회원가입</a>
+                </span>
+                <span th:if="${session.memberId != null}">
+                    <span style="color:#fff;margin-right:18px;" th:text="${session.memberId}"></span>
+                    <a style="color:black;" th:href="@{/post/new}">글쓰기</a>
+                    <a th:href="@{/logout}" style="color:#fff;">로그아웃</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
