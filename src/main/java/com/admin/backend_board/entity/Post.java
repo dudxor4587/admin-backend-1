@@ -11,11 +11,5 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String title;
-
-    private String content;
-
-    @ManyToOne
-    private Member member;
+    // TODO : 엔티티 매핑
 }

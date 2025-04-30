@@ -14,8 +14,5 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String email;
-
-    private String password;
+    // TODO : 엔티티 매핑
 }

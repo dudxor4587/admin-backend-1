@@ -11,12 +11,5 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String content;
-
-    @ManyToOne
-    private Post post;
-
-    @ManyToOne
-    private Member member;
+    // TODO : 엔티티 매핑
 }
